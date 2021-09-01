@@ -1,6 +1,6 @@
 # vue_test笔记
 脚手架文档地址：https://cli.vuejs.org/zh
-
+要运行那个demo就将文件夹名改为src，比如：要运行【 01_src_分析脚手架】就将名字改为【src】
 ## 脚手架文件结构：
 
 在项目根目录使用命令：tree /f > xxx.txt 命令获得项目目录结构。

@@ -1,22 +1,21 @@
 <template>
-    <!-- 必须有div根元素 -->
-    <div>
-        <img src="./assets/logo.png" alt="logo">
-        <School></School>
-        <Student></Student>
-    </div>
+  <div>
+      <h1 v-text="msg"></h1>
+      <School></School>
+  </div>
 </template>
 
 <script>
-    // 引入组件
-    import School  from './components/School.vue'
-    import Student  from './components/Student.vue'
-
+    import School from './components/School.vue'
     export default {
         name:'App',
+        data() {
+            return {
+                msg:'欢迎您！',
+            }
+        },
         components:{
-            School,
-            Student
+            School
         }
     }
 </script>
