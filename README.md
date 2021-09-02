@@ -1,9 +1,9 @@
-# vue_test笔记
-脚手架文档地址：https://cli.vuejs.org/zh
-要运行那个demo就将文件夹名改为src，比如：要运行【 01_src_分析脚手架】就将名字改为【src】
-## 脚手架文件结构：
+# vue脚手架项目学习笔记
+>脚手架文档地址：https://cli.vuejs.org/zh
+>要运行那个demo就将文件夹名改为src，比如：要运行【 01_src_分析脚手架】就将名字改为【src】
+## 1.脚手架文件结构：
 
-在项目根目录使用命令：tree /f > xxx.txt 命令获得项目目录结构。
+&emsp;&emsp;在项目根目录使用命令：tree /f > xxx.txt 命令获得项目目录结构。
 
     ├─node_modules              
     ├─public
@@ -26,20 +26,25 @@
     ├─README.md //应用描述文件
     ├─vue.config.js //vue脚手架配置文件
 
-## 关于不同版本的Vue：
+## 2.关于不同版本的Vue：
 
-  - 1.vue.js与vue.runtime.xxx.js的区别：
+  - **1.vue.js与vue.runtime.xxx.js的区别：**
     
-     (1).vue.js是完整版的Vue，包含：核心功能+模板解析器；
+>     (1).vue.js是完整版的Vue，包含：核心功能+模板解析器；  
+>     (2).vue.runtime.xxx.js是运行版的Vue，只包含：核心功能，没有模板解析器；
   
-     (2).vue.runtime.xxx.js是运行版的Vue，只包含：核心功能，没有模板解析器；
-  
-  - 2.因为vue.runtime.xxx.js没有模板解析器，所以不能用template配置项，需要使用render函数
-     接收到createElement函数去指定具体内容；
+  - **2.因为vue.runtime.xxx.js没有模板解析器，所以不能用template配置项，需要使用render函数
+     接收到createElement函数去指定具体内容；**
 
-## vue.config.js配置文件：
+## 3.vue.config.js配置文件：
 > 使用vue inspect > output.js可以查看Vue脚手架的默认配置。
 >
 > 使用vue.config.js可以对脚手架进行个性化定制，详情见：https://cli.vuejs.org/zh
 
+## 4.ref属性：
+   &emsp;1.被用来给元素或子组件注册引用信息（id的替代者）；
+   &emsp;2.应用在HTML标签上获取的是真实DOM元素，应用在组件标签上获取的是组件实例对象（VC）；
+   &emsp;3.使用方式：
+>      打标识：<h1 ref="xxx"></h1>或<School ref="xxx"></School>；
+>      获取：this.$refs.xxx；
 
