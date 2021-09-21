@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
+// 引入插件
+import plugins from './plugins.js'
 Vue.config.productionTip = false
-// 全局引入一个混合
-// import {mixins01,mixins02} from './mixin'
-// Vue.mixin(mixins01)
-// Vue.mixin(mixins02)
-
+// 应用（使用）插件
+Vue.use(plugins, 1, 2)
 new Vue({
-    el:'#app',
-    render:h => h(App),
+    el: '#app',
+    render: h => h(App),
 })
