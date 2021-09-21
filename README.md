@@ -121,3 +121,9 @@
             Vue.prototype.hello = () => { alert('你好啊！') }
         }
     使用插件：Vue.use(xxx)
+## 8.scoped样式：
+    作用：让样式在组件局部生效，防止同名冲突。
+    写法：
+        <style scoped>
+            ......
+        </style>
