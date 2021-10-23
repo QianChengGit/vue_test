@@ -2,8 +2,8 @@
   <div class="todo-container">
     <div class="todo-wrap">
       <MyHeader :addTodo="addTodo" />
-      <MyList :todos="todos" />
-      <MyFooter />
+      <MyList :todos="todos" :checkTodo="checkTodo" :deleteTodo="deleteTodo" />
+      <MyFooter :todos="todos" />
     </div>
   </div>
 </template>
@@ -30,9 +30,27 @@ export default {
     };
   },
   methods: {
+    // 添加一个todo
     addTodo(todoObj) {
       console.log("我是App组件，我收到了数据：", todoObj);
       this.todos.unshift(todoObj);
+    },
+    // 勾选or取消勾选一个todo
+    checkTodo(todoId) {
+      this.todos.forEach((todo) => {
+        if (todo.id === todoId) {
+          todo.done = !todo.done;
+          console.log(todo.id + ":" + todo.done);
+        }
+      });
+    },
+    // 删除一个todo
+    deleteTodo(todoId) {
+      // 把过滤出来的新数组重新赋值给todos
+      this.todos = this.todos.filter((todo) => {
+        return todo.id !== todoId;
+      });
+      console.log(todoId + ":被删除");
     },
   },
 };
