@@ -150,3 +150,37 @@
 3. 使用v-model时要切记：v-model绑定的值不能是props传过来的值，因为props是不可修改的。
 
 4. props传过来的若是对象类型的值，修改对象中的属性时Vue不会报错，但不推荐这样做。
+
+## 10.webStorage
+
+1. 存储内容大小一般支持5MB左右（不同浏览器可能还不一样）
+
+2. 浏览器端通过Window.sessionStorage和Window.localStorage属性来实现本地存储机制。
+
+3. 相关API：
+
+	&emsp;&emsp;1.xxxxStorage.setItem('key','value');
+
+	&emsp;&emsp;&emsp;&emsp;该方法接受一个键和值作为参数，会把键值对添加到存储中，如果键名存在，则更新其对应的值。
+
+	&emsp;&emsp;2.xxxxStorage.getItem('key');
+
+	&emsp;&emsp;&emsp;&emsp;该方法接受一个键名作为参数，返回键名对应的值。
+
+	&emsp;&emsp;3.xxxxStorage.removeItem('key');
+
+	&emsp;&emsp;&emsp;&emsp;该方法接受一个键名作为参数，并把该键名和其对应的值从存储中删除。
+
+	&emsp;&emsp;4.xxxxStorage.clear();
+
+	&emsp;&emsp;&emsp;&emsp;该方法会清空存储中的所有数据。
+
+4. 备注：
+
+	&emsp;&emsp;1.SessionStorage存储的内容会随着浏览器窗口关闭而消失。
+
+	&emsp;&emsp;2.LocalStorage存储的内容，需要手动清除才会消失。
+
+	&emsp;&emsp;3.xxxxStorage.getItem(xxx)如果xxx对应的value获取不到，那么getItem的返回值是null。
+
+	&emsp;&emsp;4.JSON.parse(null)的结果依然是null。
