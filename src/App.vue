@@ -26,11 +26,7 @@ export default {
   },
   data() {
     return {
-      todos: [
-        { id: "001", title: "吃饭", done: true },
-        { id: "002", title: "写代码", done: false },
-        { id: "003", title: "学习", done: true },
-      ],
+      todos: JSON.parse(localStorage.getItem("todos")) || [],
     };
   },
   methods: {
@@ -68,6 +64,20 @@ export default {
         //函数体
         return !todo.done;
       });
+    },
+  },
+  watch: {
+    // 这样监视会出现勾选已完成事项,刷新页面后勾选内容丢失的bug,因为这样只能监视数组的变化，数组里的对象属性变化不能监视到。
+    // todos(value) {
+    //   localStorage.setItem("todos", JSON.stringify(value));
+    // },
+
+    // 深度监视
+    todos: {
+      deep: true, //开启深度监视
+      handler(value) {
+        localStorage.setItem("todos", JSON.stringify(value));
+      },
     },
   },
 };
