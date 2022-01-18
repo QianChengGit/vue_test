@@ -255,3 +255,28 @@
 
 4. 最好在beforeDestroy钩子中，用$off去解绑<font style="color:red;">当前组件所用到的事件</font>。
 
+## 13.消息订阅与发布
+
+1. 一种组件间通信方式，适用于<font style="color:red;">任意组件间通信</font>。
+
+2. 使用步骤：
+
+	1. 安装pubsub：`npm i pubsub-js`
+
+	2. 引入：`import pubsub from "pubsub-js";`
+
+	3. 接收数据：A组件想要接收数据，则在A组件中订阅消息，订阅的<font style="color:red;">回调留在A组件自身</font>。
+
+		```js
+		methods: {
+		  demo(msgName, data) {......},
+		},
+		......
+		mounted() {
+		  this.pid = pubsub.subscribe("xxxx", this.demo);//订阅消息
+		},
+		```
+
+	4. 提供数据：`pubsub.publish("xxxx", 数据);`
+
+	5. 最好在beforeDestroy钩子中，用`pubsub.unsubcribe(pid)`去<font style="color:red;">取消订阅。</font>。
