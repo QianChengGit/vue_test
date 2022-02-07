@@ -45,6 +45,12 @@ export default {
         }
       });
     },
+    // 修改todo
+    updateTodo(todoId, title) {
+      this.todos.forEach((todo) => {
+        if (todo.id === todoId) todo.title = title;
+      });
+    },
     // 删除一个todo
     deleteTodo(_, todoId) {
       // 把过滤出来的新数组重新赋值给todos
@@ -83,11 +89,13 @@ export default {
   },
   mounted() {
     this.$bus.$on("checkTodo", this.checkTodo);
+    this.$bus.$on("updateTodo", this.updateTodo);
     //订阅消息
     this.pubId = pubsub.subscribe("deleteTodo", this.deleteTodo);
   },
   beforeDestroy() {
     this.$bus.$off("checkTodo");
+    this.$bus.$off("updateTodo");
     //取消订阅
     pubsub.unsubscribe(this.pubId);
   },
@@ -116,9 +124,19 @@ body {
   background-color: #da4f49;
   border: 1px solid #bd362f;
 }
+.btn-edit {
+  color: #fff;
+  background-color: #0ab7bd;
+  border: 1px solid #0a8e92;
+  margin-right: 5px;
+}
 .btn-danger:hover {
   color: #fff;
   background-color: #bd362f;
+}
+.btn-edit:hover {
+  color: #fff;
+  background-color: #0a8e92;
 }
 .btn:focus {
   outline: none;
