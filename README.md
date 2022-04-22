@@ -293,7 +293,7 @@
 
 2. 图示：
 
-	![](./public/transition.png)
+	![Vue封装的过渡与动画图示](./public/transition.png)
 
 3. 写法：
 
