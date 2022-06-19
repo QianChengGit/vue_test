@@ -28,18 +28,18 @@ export default {
   computed: {
     // 借助mapState生成计算属性，从state中读取数据（数组写法）
     // 生成的计算属性名与state中读取的数据名一致
-    ...mapState("countAbout", ["sum", "school", "subject"]),
-    ...mapState("personAbout", ["personList"]),
+    ...mapState(["sum", "school", "subject", "personList"]),
 
     // 借助mapGetters生成计算属性，从getters中读取数据（数组写法）
     // 生成的计算属性名与getters中读取的数据名一致
-    ...mapGetters("countAbout", ["bigSum"]),
+    ...mapGetters(["bigSum"]),
   },
   methods: {
-    // 借助mapMutations生成对应的方法，方法中会调用commit去联系Mutations（对象写法）
-    ...mapMutations("countAbout", { increment: "JIA", decrement: "JIAN" }),
     // 借助mapActions生成对应的方法，方法中会调用dispatch去联系Actions（数组写法）
-    ...mapActions("countAbout", ["jiaOdd", "jiaWait"]),
+    ...mapActions(["jiaOdd", "jiaWait"]),
+
+    // 借助mapMutations生成对应的方法，方法中会调用commit去联系Mutations（对象写法）
+    ...mapMutations({ increment: "JIA", decrement: "JIAN" }),
   },
   mounted() {
     const x = mapState({ he: "sum", xuexiao: "school", xueke: "subject" });
