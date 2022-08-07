@@ -789,3 +789,32 @@ module.exports = {
 3. 每个组件都有自己的$route属性，里面存储着自己的路由信息。
 4. 整个应用只有一个router,可以通过组件的$router属性获取到。
 	
+### 3.嵌套(多级)路由
+1. 配置路由规则，使用children配置项：
+	```javascript
+	routes: [
+		{
+			path: '/about',
+			component: About,
+		},
+		{
+			path: '/home',
+			component: Home,
+			children: [ //通过children配置子级路由
+				{
+					path: 'message', //此处一定不要写：/message
+					component: Message,
+				},
+				{
+					path: 'news', //此处一定不要写：/news
+					component: News,
+				},
+			],
+		},]
+	```
+2. 跳转(要写完整路径)：
+
+	```vue
+	<router-link to="/home/news">News</router-link>
+	```
+
