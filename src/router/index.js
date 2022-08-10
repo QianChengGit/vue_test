@@ -27,7 +27,7 @@ const router = new VueRouter({
                     children: [
                         {
                             name: 'xiangqing',//给路由取一个名字
-                            path: 'detail',
+                            path: 'detail/:id/:title',//传递params参数要给路径加参数占位符
                             component: Detail,
                         },
                     ],
