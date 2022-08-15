@@ -1106,3 +1106,23 @@ module.exports = {
 	2. 兼容性和hash模式相比略差。
 	3. 应用部署上线时需要后端人员支持，解决刷新页面服务端404的问题。
 
+## 20.element-ui组件库的基本使用
+
+### 1.Vue UI组件库
+
+- 移动端常用组件库
+
+	1.Vant（https://youzan.github.io/vant）
+
+	2.Cube UI（https://didi.github.io/cube-ui）
+
+	3.Mint UI（http://mint-ui.github.io）
+
+	4.Nut UI（https://nutui.jd.com）
+
+- PC端常用组件库
+
+	1.Element UI （https://element.eleme.cn）
+
+	2.IView UI（https://www.iviewui.com）
+
